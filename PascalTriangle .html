@@ -1,0 +1,75 @@
+
+<html>
+<script type="text/javascript">
+
+function f2(){
+	n=document.getElementById("steps").value;
+//var n=prompt("how many rows to display","");
+	
+	var a=new Array(n);
+	var b=new Array(n);
+if(n<2){alert("请输入大于1的自然数");}
+
+else{
+	for(var i=1;i<=2;i++){
+		for(var k=0;k<(n-i);k++){
+			document.write("&nbsp;")
+		}
+		for(var j=0;j<i;j++){
+			b[j]=1;
+			document.write(b[j]+"&nbsp;")
+		}
+	document.write("<br>");
+	
+	}
+
+	for(i=3;i<=n;i++){
+
+/*为什么下面声明循环次数时不能用<a.length，只能用n(键盘输入的数值)*/
+
+		for(var k=0;k<n-i;k++){
+			document.write("&nbsp;")
+		}
+
+		for(j=0;j<i;j++){
+			if(j==0||j==(i-1)){
+				a[j]=1;
+			}else{a[j]=b[j-1]+b[j]}
+			document.write(a[j]+"&nbsp;");
+		}
+		for(var m=0;m<i;m++){
+			b[m]=a[m];
+		}
+		document.write("<br>");
+	}
+}
+
+}
+
+</script>
+<body>
+<div style="background; #B9B9B9; border:solid 2px;;margin:auto; width:60%; height:60px">
+		<div  style="border:#000000 solid 0px; float:left;margin-left:10px; width:50%; height:50px; padding-top:8px; font-size:24px; text-align:center;">
+			杨辉三角
+		</div>
+		<div style="border:#000000 solid 0px; float:left; margin-left:10px; width:20%; height:50px; vertical-align:middle;">
+			<input type="text" id="steps" value="" style="font-size:28px; text-align:right; size:2; width:50%; margin:5px 10px;" />
+			阶数
+		</div>
+		<div style="border:#000000 solid 1px; float:left;margin-left:10px; width:15%; height:50px">
+			<input type="button" id="go" value="确定" onclick="f2()" style="font-size:28px; text-align:center; size:2; width:80%; margin:5px 8px;" />
+		</div>
+	
+</div>
+<br />
+	
+
+
+
+</body>
+</html>
+
+	
+	
+
+
